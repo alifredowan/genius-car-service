@@ -1,11 +1,11 @@
-import React, {useRef, useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
-import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useSendPasswordResetEmail, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init'
 import SocialLogIn from './SocialLogIn/SocialLogIn';
 
 const Login = () => {
- 
+
     const [email, setEmail] = useState("");
     // const emailRef = useRef('')
     const [password, setpassword] = useState("");
@@ -17,11 +17,12 @@ const Login = () => {
         signInWithEmailAndPassword,
         user,
         error
-      ] = useSignInWithEmailAndPassword(auth);
-     const handleEmail = e =>{
-         setEmail(e.target.value);
+    ] = useSignInWithEmailAndPassword(auth);
+    const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail(auth);
+    const handleEmail = e => {
+        setEmail(e.target.value);
     }
-     const handlePassword = e =>{
+    const handlePassword = e => {
         setpassword(e.target.value);
     }
     const handleLogin = e => {
@@ -31,7 +32,7 @@ const Login = () => {
         signInWithEmailAndPassword(email, password)
     }
     if (user) {
-        navigate(from, {replace : true})
+        navigate(from, { replace: true })
     }
     return (
         <div>
@@ -54,8 +55,8 @@ const Login = () => {
                                 {/* <!-- Email input --> */}
                                 <div className="mb-6">
                                     <input
-                                    onBlur={handleEmail}
-                                    // ref={emailRef}
+                                        onBlur={handleEmail}
+                                        // ref={emailRef}
                                         type="text"
                                         className="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
                                         id="exampleFormControlInput2"
@@ -81,7 +82,7 @@ const Login = () => {
                                 <div className="text-center lg:text-left">
                                     <button
                                         type="submit"
-                                        className="inline-block px-7 py-3 bg-blue-600 text-white font-medium text-sm leading-snug uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
+                                        className="inline-block px-7 py-3 bg-blue-600 text-white font-medium text-sm leading-snug uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out font-bold"
                                     >
                                         Login
                                     </button>
@@ -93,6 +94,10 @@ const Login = () => {
                                             className="text-red-600 hover:text-red-700 focus:text-red-700 transition duration-200 ease-in-out"
                                         >Register</Link>
                                     </p>
+                                    <a href="#" onClick={async () => {
+                                        await sendPasswordResetEmail(email);
+                                        alert('Sent email');
+                                    }} className="text-gray-800">Forgot password?</a>
                                 </div>
                                 <SocialLogIn></SocialLogIn>
                             </form>
