@@ -2,6 +2,7 @@ import React, {useRef, useState } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init'
+import SocialLogIn from './SocialLogIn/SocialLogIn';
 
 const Login = () => {
  
@@ -93,6 +94,7 @@ const Login = () => {
                                         >Register</Link>
                                     </p>
                                 </div>
+                                <SocialLogIn></SocialLogIn>
                             </form>
                         </div>
                     </div>

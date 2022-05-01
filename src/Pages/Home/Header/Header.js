@@ -58,12 +58,6 @@ const Header = () => {
                             <li className="nav-item p-2">
                                 <Link
                                     className="nav-link text-white opacity-60 hover:opacity-80 focus:opacity-80 p-0"
-                                    to="/singin"
-                                >Sing In</Link>
-                            </li>
-                            <li className="nav-item p-2">
-                                <Link
-                                    className="nav-link text-white opacity-60 hover:opacity-80 focus:opacity-80 p-0"
                                     to="/expert"
                                 >About</Link>
                             </li>
