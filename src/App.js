@@ -5,6 +5,7 @@ import Services from './Pages/Home/Services/Services';
 import Experts from './Pages/Home/Experts/Experts';
 import Header from './Pages/Home/Header/Header'
 import Footer from './Pages/Home/Footer/Footer';
+import ServiceDetails from './Pages/Home/ServiceDetails/ServiceDetails';
 function App() {
   return (
     <div className="App">
@@ -13,6 +14,7 @@ function App() {
         <Route path='/' element={<Home></Home>}></Route>
         <Route path='/service' element={<Services></Services>}></Route>
         <Route path='/expert' element={<Experts></Experts>}></Route>
+        <Route path='/servicedetails/:servicedetailsId' element={<ServiceDetails></ServiceDetails>}></Route>
       </Routes>
       <Footer></Footer>
     </div>

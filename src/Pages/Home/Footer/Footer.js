@@ -7,8 +7,8 @@ const Footer = () => {
     const year = date.getFullYear();
     return (
         <div>
-            <footer class="bg-gray-200 text-center lg:text-left">
-                <div class="text-gray-700 text-center p-4">
+            <footer className="bg-gray-200 text-center lg:text-left">
+                <div className="text-gray-700 text-center p-4">
                 Copyright ©: Date :{today} / {month} / {year}
                 </div>
             </footer>
