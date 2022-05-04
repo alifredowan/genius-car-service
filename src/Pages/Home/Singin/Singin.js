@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init'
 import SocialLogIn from '../Login/SocialLogIn/SocialLogIn';
+import { Helmet } from 'react-helmet-async';
 const Singin = () => {
     const [email, setEmail] = useState("");
     const [password, setpassword] = useState("");
@@ -31,6 +32,9 @@ const Singin = () => {
     }
     return (
         <div>
+            <Helmet>
+                <title>Sing-In - Genius-Car-Service</title>
+            </Helmet>
                     <div>
             <section className="h-screen">
                 <div className="px-6 h-full text-gray-800">

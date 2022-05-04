@@ -3,6 +3,7 @@ import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { useSendPasswordResetEmail, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init'
 import SocialLogIn from './SocialLogIn/SocialLogIn';
+import { Helmet } from 'react-helmet-async';
 
 const Login = () => {
 
@@ -36,6 +37,9 @@ const Login = () => {
     }
     return (
         <div>
+            <Helmet>
+                <title>Log-In - Genius-Car-Service</title>
+            </Helmet>
             <section className="h-screen">
                 <div className="px-6 h-full text-gray-800">
                     <div
