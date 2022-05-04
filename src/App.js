@@ -8,6 +8,7 @@ import Footer from './Pages/Home/Footer/Footer';
 import ServiceDetails from './Pages/Home/ServiceDetails/ServiceDetails';
 import Login from './Pages/Home/Login/Login';
 import Singin from './Pages/Home/Singin/Singin';
+import About from './Pages/Home/About/About' 
 function App() {
   return (
     <div className="App">
@@ -19,6 +20,7 @@ function App() {
         <Route path='/servicedetails/:servicedetailsId' element={<ServiceDetails></ServiceDetails>}></Route>
         <Route path='/login' element={<Login></Login>}></Route>
         <Route path='/singin' element={<Singin></Singin>}></Route>
+        <Route path='/about' element={<About></About>}></Route>
       </Routes>
       <Footer></Footer>
     </div>
